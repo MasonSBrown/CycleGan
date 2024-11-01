@@ -91,10 +91,12 @@ def train_fn(
         g_scaler.scale(G_loss).backward()
         g_scaler.step(opt_gen)
         g_scaler.update()
-
+        # Put own file path here!!! /Users/Mason/github/other/cyclegan/saved_images
+        #/Users/Mason/github/other/cyclegan/saved_images/horse
+        #/Users/Mason/github/other/cyclegan/saved_images/zebra
         if idx % 200 == 0:
-            save_image(fake_horse * 0.5 + 0.5, f"saved_images/horse_{idx}.png")
-            save_image(fake_zebra * 0.5 + 0.5, f"saved_images/zebra_{idx}.png")
+            save_image(fake_horse * 0.5 + 0.5, f"/Users/Mason/github/other/cyclegan/saved_images/horse_{idx}.png")
+            save_image(fake_zebra * 0.5 + 0.5, f"/Users/Mason/github/other/cyclegan/saved_images/zebra_{idx}.png")
 
         loop.set_postfix(H_real=H_reals / (idx + 1), H_fake=H_fakes / (idx + 1))
 
